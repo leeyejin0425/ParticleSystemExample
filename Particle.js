@@ -21,7 +21,7 @@ class Particle {
     update() {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
-        this.lifespan -= 2;
+        this.lifespan -= 5;
 
         this.acceleration.set(0, 0);
     }
@@ -30,7 +30,7 @@ class Particle {
         stroke(200, this.lifespan);
         strokeWeight(2);
         fill(127, this.lifespan);
-        ellipse(this.position.x, this.position.y, this.w, this.w);
+        line(this.position.x+random(10,50), this.position.y+random(10,50), this.w+random(10,50), this.w+random(10,50));
     }
 
     isDead() {

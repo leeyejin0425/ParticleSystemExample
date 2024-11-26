@@ -8,6 +8,8 @@ class ParticleSystem {
         this.particles.push(new Particle(this.origin));
     }
 
+
+
     applyGravity(g) {
         this.applyForce(g);
     }
@@ -15,6 +17,14 @@ class ParticleSystem {
     applyForce(force) {
         for (let p of this.particles) {
             p.applyForce(force);
+        }
+    }
+
+
+    applyRepeller(repeller) {
+        for (let particle of this.particles) {
+          let force = repeller.repel(particle);
+          particle.applyForce(force);
         }
     }
 
@@ -26,5 +36,6 @@ class ParticleSystem {
               this.particles.splice(i, 1);
             }
           }
+        }
     }
-}
+

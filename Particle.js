@@ -9,6 +9,13 @@ class Particle {
         this.w = 2;
     }
 
+    applyRepeller(repeller) {
+        for (let particle of this.particles) {
+          let force = repeller.repel(particle);
+          particle.applyForce(force);
+        }
+      }
+
     run() {
         this.update();
         this.display();

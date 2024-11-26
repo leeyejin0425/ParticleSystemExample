@@ -13,9 +13,12 @@ class Repeller {
     force.setMag(strength);
     return force;
   }
+  move(velocity){
+    this.position.add(velocity);
+  }
 
     show(){
-        stroke(2);
+        //stroke(2);
         fill('red');
         rect(this.position.x, this.position.y, 50);
         

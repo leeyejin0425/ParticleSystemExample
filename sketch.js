@@ -10,7 +10,7 @@ function setup() {
   g = createVector(0, 0.05);
   wind = createVector(0.03, -0.01);
 
-  repeller = new Repeller(width/2, height/2);
+  repeller = new Repeller(0, height/2);
 }
 
 function draw() {
@@ -19,11 +19,14 @@ function draw() {
   for (let s of systems) {
     s.addParticle();
     s.applyGravity(g);
-    s.applyForce(wind);
+    //s.applyForce(wind);
     s.applyRepeller(repeller);
     s.run();
 
   }
+
+  //repeller.position.x+= 1;
+  repeller.move(createVector(1,0));
   repeller.show();
 }
 
